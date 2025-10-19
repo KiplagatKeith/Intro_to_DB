@@ -33,3 +33,16 @@ CREATE TABLE IF NOT EXISTS Orders(
         ON UPDATE CASCADE,
     order_date DATE
 );
+
+CREATE TABLE IF NOT EXISTS Order_Details(
+    orderdetailid INT PRIMARY KEY,
+    order_id INT,
+    book_id INT,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
